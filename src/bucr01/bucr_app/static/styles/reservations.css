@@ -1,0 +1,31 @@
+/* CSS for reservations.html and reservation_list.html */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  li p:first-child {
+    font-weight: bold;
+  }
+  
+  li p:not(:first-child) {
+    margin-left: 20px;
+  }
+  

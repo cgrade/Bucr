@@ -1,0 +1,46 @@
+.container {
+  margin-top: 50px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+form button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+  background-color: #286090;
+}
+

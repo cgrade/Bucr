@@ -1,0 +1,46 @@
+/* restaurant_detail.css */
+
+.restaurant-detail {
+    margin: 20px;
+  }
+  
+  .restaurant-detail h1 {
+    font-size: 24px;
+    color: #bb1e1e;
+  }
+  
+  .restaurant-detail p {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .restaurant-detail p {
+    color: #007bff;
+  }
+  
+  .restaurant-detail h2 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .restaurant-detail ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .restaurant-detail li {
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-detail li p {
+    margin: 0;
+  }
+  
+  .restaurant-detail li p:first-child {
+    font-weight: bold;
+  }
+  
+  .restaurant-detail li p:last-child {
+    color: #666;
+  }
+  

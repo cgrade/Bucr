@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="../static/styles/rest-list.css" />
+<section class="restaurant-listing">
+  <h2>Restaurant Listings</h2>
+  {% for restaurant in restaurants %}
+  <div class="restaurant-card">
+    <img src="{{ restaurant.image.url }}" alt="{{ restaurant.name }}" />
+
+    <div class="restaurant-details">
+      <h3>{{ restaurant.name }}</h3>
+      <p>{{ restaurant.cuisine_type }}</p>
+      <div class="rating">
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9733;</span>
+        <span>&#9734;</span>
+      </div>
+      <p>{{ restaurant.address }}</p>
+      <p>{{ restaurant.contact_number }}</p>
+      <p>{{ restaurant.opening_hours }}</p>
+      <a href="{% url 'restaurant_detail' restaurant.id %}" class="button"
+        >View Details</a
+      >
+      <a href="{% url 'leave_review' restaurant.id %}" class="button"
+        >Leave a Review</a
+      >
+    </div>
+  </div>
+  {% endfor %}
+  <!-- Repeat the above restaurant card structure for other restaurant listings -->
+</section>
+
+{% endblock %}

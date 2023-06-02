@@ -1,0 +1,50 @@
+<!-- create_reservation.html -->
+
+{% extends 'base.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="/static/styles/create_reservation.css" />
+<div class="container">
+  <h1>Create Reservation</h1>
+  <form method="POST" action="{% url 'create_reservation' restaurant %}">
+    {% csrf_token %}
+    <!-- <div class="form-group">
+      <label for="date">Date</label>
+      <input type="date" class="form-control" id="date" name="date" required />
+    </div>
+    <div class="form-group">
+      <label for="time">Time</label>
+      <input type="time" class="form-control" id="time" name="time" required />
+    </div>
+    <div class="form-group">
+      <label for="num_guests">Party Size</label>
+      <input
+        type="number"
+        class="form-control"
+        id="num_guests"
+        name="num_guests"
+        min="1"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="table">Table</label>
+      <select class="form-control" id="table" name="table" required>
+        {% for table in tables %}
+        <option value="{{ table.id }}">{{ table.name }}</option>
+        {% endfor %}
+      </select>
+    </div> -->
+    {{ form.as_p }}
+    <div class="form-group">
+      <label for="special_requests">Special Requests</label>
+      <textarea
+        class="form-control"
+        id="special_requests"
+        name="special_requests"
+        rows="4"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Reservation</button>
+  </form>
+</div>
+
+{% endblock %}

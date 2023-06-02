@@ -1,0 +1,48 @@
+/* Add your CSS styles here */
+  
+  .restaurant-listing {
+    padding: 50px;
+  }
+  
+  .restaurant-card {
+    display: flex;
+    margin-bottom: 30px;
+  }
+  
+  .restaurant-card img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .restaurant-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .restaurant-details p {
+    margin-bottom: 5px;
+  }
+  
+  .rating span {
+    color: #ffbf00;
+    font-size: 16px;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+  }
+  

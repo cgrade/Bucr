@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/styles/base.css"
+    />
+    <title>Bucr</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="brand-title"><a href="{% url 'homepage' %}">Bucr</a></div>
+        <div class="navbar-links">
+        <ul>
+          <li><a href="{% url 'homepage' %}">Home</a></li>
+          <li><a href="{% url 'restaurant_list' %}">Restaurants</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'reservations' %}">My Reservations</a></li>
+          <li class="user-profile">
+            <img src="{{ user.userprofile.image.url }}" alt="Profile Picture" />
+            <a href="{% url 'user_profile' %}">Welcome, {{ user.username }}</a>
+            <a href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% else %}
+          <li><a href="{% url 'user_registration' %}">Register</a></li>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </header>
+
+    <main>{% block content %} {% endblock %}</main>
+
+    <footer>
+      <p style="text-align: center">
+        &copy; 2023 Bucr App. All rights reserved.
+      </p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="../static/styles/my_reservation.css" />
+
+<!-- my_reservations.html -->
+
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h2>My Reservations</h2>
+
+  {% if reservations %} {% for reservation in reservations %}
+  <div class="reservation-card">
+    <div class="reservation-info">
+      <h4 class="reservation-date">{{ reservation.date }}</h4>
+      <div class="reservation-actions">
+        <a href="#" class="btn btn-danger">Cancel</a>
+      </div>
+    </div>
+    <div class="reservation-details">
+      <p><strong>Restaurant:</strong> {{ reservation.restaurant }}</p>
+      <p><strong>Table:</strong> {{ reservation.table }}</p>
+      <p><strong>Guests:</strong> {{ reservation.guests }}</p>
+    </div>
+  </div>
+  {% endfor %} {% else %}
+  <p>You have no reservations.</p>
+  {% endif %}
+
+  <a class="back-link" href="{% url 'restaurant_list' %}"
+    >&larr; Back to Restaurants</a
+  >
+</div>
+{% endblock %}

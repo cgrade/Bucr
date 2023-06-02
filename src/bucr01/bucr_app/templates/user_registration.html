@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% load static %}
+<link rel="stylesheet" href="{% static 'styles/user_registration.css' %}" />
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2>Register</h2>
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{ user_form.as_p }} {{ profile_form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+          <a
+            href="{% url 'restaurant_registration' %}"
+            class="btn btn-secondary"
+            >Register a Restaurant</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

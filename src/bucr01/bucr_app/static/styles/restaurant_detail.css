@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: rgb(248, 246, 246);
+}
+
+.brand-title {
+  font-size: 3.6rem;
+  margin: 0.5rem;
+  color: rgb(148, 230, 230);
+}
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.navbar-links li {
+  list-style: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: aliceblue;
+  padding: 1rem;
+  display: block;
+}
+
+.navbar-links li:hover {
+  background-color: rgb(113, 119, 119);
+}
+
+.user-profile {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.user-profile img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.user-profile a {
+  color: #333;
+  text-decoration: none;
+  margin-left: 5px;
+}
+/* restaurant_detail.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.restaurant-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.restaurant-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.restaurant-info {
+  flex: 1;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.restaurant-description {
+  margin-top: 10px;
+  color: #555;
+}
+
+.restaurant-details {
+  margin-top: 20px;
+}
+
+.restaurant-details p {
+  margin-bottom: 10px;
+}
+
+.restaurant-details h4 {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.restaurant-reviews {
+  margin-top: 40px;
+}
+
+.review {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.review .author {
+  font-weight: bold;
+}
+
+.review .rating {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.review .rating span {
+  color: #ffbb00;
+  margin-right: 5px;
+}
+
+.review .content {
+  margin-top: 10px;
+}
+
+.review .date {
+  font-size: 12px;
+  color: #999;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.back-link {
+  margin-top: 20px;
+  display: inline-block;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="../static/styles/search_view.css" />
+{% extends 'base.html' %} {% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+
+{% if results %}
+<ul>
+  {% for restaurant in results %}
+  <a href="{% url 'restaurant_detail' restaurant.id %}"
+    ><li>{{ restaurant.name }}</li></a
+  >
+  {% endfor %}
+</ul>
+{% else %}
+<p>No results found.</p>
+{% endif %} {% endblock %}
