@@ -1,9 +1,12 @@
 #!/usr/bin/ python3
 
-from django import forms
+from django import forms 
+from django.forms import modelformset_factory
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Restaurant, Review, Reservation, UserProfile
+from .models import Restaurant, Review, Reservation, UserProfile, Photo
+from django.forms import ClearableFileInput
+
 
 
 class RestaurantRegistrationForm(UserCreationForm):
@@ -35,6 +38,30 @@ class RestaurantRegistrationForm(UserCreationForm):
             )
         return user
 
+class MultiFileInput(forms.ClearableFileInput):
+    template_name = 'bucr_app/templates/multi-file-input.html'
+
+class RestaurantForm(forms.ModelForm):
+    class Meta:
+        model = Restaurant
+        fields = ['name', 'address', 'contact_number',
+        'description', 'image', 'opening_hours']
+        widgets = {'photo_gallery': MultiFileInput()}
+
+
+
+
+
+
+class PhotoForm(forms.ModelForm):
+    class Meta:
+        model = Photo
+        fields = ['restaurant', 'images']
+        widgets = {
+            'images': MultiFileInput(),
+        }
+
+PhotoFormSet = modelformset_factory(Photo, form=PhotoForm, extra=1)
 
 class ReservationForm(forms.ModelForm):
     class Meta:

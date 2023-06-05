@@ -1,0 +1,30 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h1>Update Restaurant</h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ rform.as_p }}
+      
+      <hr>
+      
+      <h2>Photo Gallery</h2>
+      {{ photo_formset.management_form }}
+      {% for form in photo_formset %}
+        <div class="form-group">
+          {{ form.image.label_tag }}
+          {{ form.image }}
+          {% if form.image.value %}
+            <img src="{{ form.image.value.url }}" class="img-thumbnail" width="200">
+          {% endif %}
+        </div>
+      {% endfor %}
+      
+      <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+  </div>
+{% endblock %}
+

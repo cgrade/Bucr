@@ -7,6 +7,7 @@ represents the Entity Fields."""
 # import necessary dependencies
 from django.db import models
 from django.contrib.auth.models import User
+import bucr_app
 
 
 class UserProfile(models.Model):
@@ -23,6 +24,7 @@ class UserProfile(models.Model):
         return (self.user.username)
 
 
+
 # Defining the Restaurant Model Class
 class Restaurant(models.Model):
     """A Class that represents the Restaurant Database Model"""
@@ -34,11 +36,21 @@ class Restaurant(models.Model):
     contact_number = models.CharField(max_length=15)
     opening_hours = models.CharField(max_length=100)
     image = models.ImageField(upload_to='restaurant_images')
+  
 
     def __str__(self):
         """String Representation of the Restaurant Model"""
         return (self.name)
 
+
+class Image(models.Model):
+    file = models.ImageField(upload_to='restaurant_photos')
+
+class Photo(models.Model):
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    images = models.ManyToManyField(Image, related_name='photos')
+    caption = models.CharField(max_length=100)
+    # Add any additional fields you need, such as a caption or description
 
 # Defining the Table Model Class
 class Table(models.Model):

@@ -16,15 +16,26 @@
   </div>
 
   <div class="restaurant-details">
-    <h4>Details:</h4>
+    <h3>Restaurant's Profile</h3>
+    <hr>
+    <p><strong>Cuisine:</strong> {{ restaurant.cuisine_type }}</p>
     <p><strong>Address:</strong> {{ restaurant.address }}</p>
-    <p><strong>Phone:</strong> {{ restaurant.phone }}</p>
+    <p><strong>Phone:</strong> {{ restaurant.contact_number }}</p>
     <p><strong>Opening Hours:</strong> {{ restaurant.opening_hours }}</p>
-    <p>
-      <strong>Website:</strong>
-      <a href="{{ restaurant.website }}">{{ restaurant.website }}</a>
-    </p>
+    <p><strong>Website:</strong>{{ restaurant.website }}</p>
   </div>
+  
+<hr>
+<div class="photo-gallery">
+  {% for photo in photos %}
+  <div class="photo">
+      {% for image in photo.images.all %}
+      <img src="{{ image.file.url }}" alt="Restaurant Photo">
+      {% endfor %}
+      <!-- Add any additional information about the photo, such as caption or description -->
+  </div>
+  {% endfor %}
+</div>
 
   <div class="restaurant-reviews">
     <a href="{% url 'create_reservation' restaurant.id %}" class="button"

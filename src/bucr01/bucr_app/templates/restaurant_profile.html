@@ -1,0 +1,45 @@
+{% extends 'base.html' %} {% block content %}
+
+<link rel="stylesheet" href="/static/styles/restaurant_detail.css" />
+<link rel="stylesheet" href="/static/styles/base.css" />
+<div class="container">
+  <div class="restaurant-header">
+    <img
+      class="restaurant-image"
+      src="{{ restaurant.image.url }}"
+      alt="{{ restaurant.name }}"
+    />
+    <div class="restaurant-info">
+      <h2 class="restaurant-name">{{ restaurant.name }}</h2>
+      <p class="restaurant-description">{{ restaurant.description }}</p>
+    </div>
+  </div>
+
+  <div class="restaurant-details">
+    <h4>Details:</h4>
+    <p><strong>Cuisine:</strong> {{ restaurant.cuisine_type }}</p>
+    <p><strong>Address:</strong> {{ restaurant.address }}</p>
+    <p><strong>Phone:</strong> {{ restaurant.contact_number }}</p>
+    <p><strong>Opening Hours:</strong> {{ restaurant.opening_hours }}</p>
+    <p>
+      <strong>Website:</strong>
+      <a href="{{ restaurant.website }}">{{ restaurant.website }}</a>
+    </p>
+  </div>
+
+  <div class="restaurant-reviews">
+    <a href="{% url 'edit_restaurant' %}" class="button"
+      >Edit My Info</a
+    >
+    <h4>Reviews:</h4>
+    {% for review in reviews %}
+    <div class="review">
+      <p class="author">{{ review.user }}</p>
+      <div class="rating"><span>&#9733;</span> {{ review.rating }}</div>
+      <p class="content">{{ review.comment }}</p>
+      <p class="date">{{ review.date }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

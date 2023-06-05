@@ -20,11 +20,17 @@
         <ul>
           <li><a href="{% url 'homepage' %}">Home</a></li>
           <li><a href="{% url 'restaurant_list' %}">Restaurants</a></li>
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated and not user.restaurant %}
           <li><a href="{% url 'reservations' %}">My Reservations</a></li>
           <li class="user-profile">
             <img src="{{ user.userprofile.image.url }}" alt="Profile Picture" />
             <a href="{% url 'user_profile' %}">Welcome, {{ user.username }}</a>
+            <a href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% elif user.restaurant %}
+          <li class="user-profile">
+            <img src="{{ user.restaurant.image.url }}" alt="Profile Picture" />
+            <p>Welcome</p> <a href="{% url 'restaurant_profile' %}">{{ user.restaurant.name }}</a>
             <a href="{% url 'logout' %}">Logout</a>
           </li>
           {% else %}
