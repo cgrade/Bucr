@@ -5,46 +5,58 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/static/styles/base.css"
-    />
+    <link rel="stylesheet" href="/static/styles/h.css">
+    
     <title>Bucr</title>
   </head>
   <body>
     <header>
       <nav class="navbar">
-        <div class="brand-title"><a href="{% url 'homepage' %}">Bucr</a></div>
-        <div class="navbar-links">
-        <ul>
-          <li><a href="{% url 'homepage' %}">Home</a></li>
-          <li><a href="{% url 'restaurant_list' %}">Restaurants</a></li>
-          {% if user.is_authenticated and not user.restaurant %}
-          <li><a href="{% url 'reservations' %}">My Reservations</a></li>
-          <li class="user-profile">
-            <img src="{{ user.userprofile.image.url }}" alt="Profile Picture" />
-            <a href="{% url 'user_profile' %}">Welcome, {{ user.username }}</a>
-            <a href="{% url 'logout' %}">Logout</a>
-          </li>
-          {% elif user.restaurant %}
-          <li class="user-profile">
-            <img src="{{ user.restaurant.image.url }}" alt="Profile Picture" />
-            <p>Welcome</p> <a href="{% url 'restaurant_profile' %}">{{ user.restaurant.name }}</a>
-            <a href="{% url 'logout' %}">Logout</a>
-          </li>
-          {% else %}
-          <li><a href="{% url 'user_registration' %}">Register</a></li>
-          <li><a href="{% url 'login' %}">Login</a></li>
-          {% endif %}
-        </ul>
+        <div class="brand-title"><a href="{% url 'homepage' %}"><img src="../../media/logo.png" alt=""></a>
+        </div>
+        <div class="nav-links">
+          <div class="nlinks">
+            <ul>
+              <li><a href="{% url 'homepage' %}">Home</a></li>
+              <li><a href="{% url 'restaurant_list' %}">Restaurants</a></li>
+              {% if user.is_authenticated and not user.restaurant %}
+              <li><a href="{% url 'reservations' %}">Reservations</a></li>
+              {% endif %}
+            </ul>
+          </div>
+
+          <div class="login-link">
+            {% if user.is_authenticated and not user.restaurant %}
+            <ul>
+              <li class="user-profile">
+                <img src="{{ user.userprofile.image.url }}" alt="Profile Picture" />
+                <a href="{% url 'user_profile' %}">Welcome, {{ user.username }}</a>
+                <button><a href="{% url 'logout' %}">Logout</a></button>
+              </li>
+            {% elif user.restaurant %}
+              <li class="user-profile">
+                <img src="{{ user.restaurant.image.url }}" alt="Profile Picture" />
+                <p>Welcome</p> <a href="{% url 'restaurant_profile' %}">{{ user.restaurant.name }}</a>
+                <button><a href="{% url 'logout' %}">Logout</a></button>
+              </li>
+              </ul>
+            {% else %}
+            <ul class="not-logged-in">
+              <li><button><a href="{% url 'user_registration' %}">Register</a></button></li>
+              <li><button><a href="{% url 'login' %}">Login</a></button></li>
+            </ul>
+              {% endif %}
+            
+          </div>
+        </div>
+          
       </nav>
     </header>
 
     <main>{% block content %} {% endblock %}</main>
 
     <footer>
-      <p style="text-align: center">
+      <p style="text-align: center; font-size: larger">
         &copy; 2023 Bucr App. All rights reserved.
       </p>
     </footer>
