@@ -23,6 +23,8 @@ class UserProfile(models.Model):
         """String Representation of the UserProfile Model"""
         return (self.user.username)
 
+class Toilet(models.Model):
+    pass
 
 
 # Defining the Restaurant Model Class
@@ -79,6 +81,9 @@ class Reservation(models.Model):
     def __str__(self):
         """String Representation of the Reservation Model"""
         return 'reservation at {} by {} for {}'.format(self.restaurant, self.user, self.num_guests)
+
+
+
 
 
 # Defining the Review Model Class
