@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bucr_app',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -143,5 +145,12 @@ AUTHENTICATION_BACKENDS = [
     # Other authentication backends if applicable
 ]
 
+CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': 'djflcoqoe',
+        'API_KEY': '822753179836117',
+        'API_SECRET': 'uo3DzjAQ3qMkBQTuPV4Qc5Fc0s8',
+        }
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

@@ -1,7 +1,7 @@
 /* Header Styles */
 
 .hero {
-  background-color: #ffbf00;
+  background-image: url(../../../media/hero.jpg);
 
   padding: 50px;
   text-align: center;
