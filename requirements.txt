@@ -6,7 +6,7 @@ cloudinary==1.33.0
 Django==4.2.2
 django-cloudinary-storage==0.3.0
 idna==3.4
-psycopg2-binary==2.9.6
+# psycopg2-binary==2.9.6
 psycopg2-pool==1.1
 Pillow==9.5.0
 postgres==4.0
