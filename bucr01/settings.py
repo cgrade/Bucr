@@ -34,7 +34,7 @@ SECRET_KEY = get_random_secret_key()
 DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1',]
-LOGIN_REDIRECT_URc = 'homepage'
+LOGIN_REDIRECT_URL = 'homepage'
 
 
 # Application definition
@@ -85,18 +85,25 @@ WSGI_APPLICATION = 'bucr01.wsgi.app'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'URL': os.environ.get("DATABASE_URL"),
+#         'NAME': os.environ.get("PGDATABASE"),
+#         'USER': os.environ.get("PGUSER"),
+#         'PASSWORD': os.environ.get("PGPASSWORD"),
+#         'HOST': os.environ.get("PGHOST"),
+#         'PORT': os.environ.get("PGPORT"),
+#     }
+# }
+
+# SQLLIte Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'URL': os.environ.get("DATABASE_URL"),
-        'NAME': os.environ.get("PGDATABASE"),
-        'USER': os.environ.get("PGUSER"),
-        'PASSWORD': os.environ.get("PGPASSWORD"),
-        'HOST': os.environ.get("PGHOST"),
-        'PORT': os.environ.get("PGPORT"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
